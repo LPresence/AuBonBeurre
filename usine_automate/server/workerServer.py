@@ -33,8 +33,8 @@ class ClientThread(threading.Thread):
                 #todo : ajouter le poids produit fini
                 #improvement : date(YYYY, MM, DD) instead of passing just epoch
                 insert_data = ("INSERT INTO donnees_automates " 
-                               "(date, id_unite, numero_automate, type_automate, temp_cuve, temp_exterieur, poids_lait_cuve, mesure_ph, mesure_k, mesure_nacl, niveau_bact_salmo, niveau_bact_ecoli, niveau_bact_listeria  )"
-                               "VALUES (%(date)s, %(id_unite)s, %(numero_automate)s, %(type_automate)s, %(temp_cuve)s, %(temp_exterieur)s, %(poids_lait_cuve)s, %(mesure_ph)s, %(mesure_k)s, %(mesure_nacl)s, %(niveau_bact_salmo)s, %(niveau_bact_ecoli)s, %(niveau_bact_listeria)s)" 
+                               "(date, id_unite, numero_automate, type_automate, temp_cuve, temp_exterieur, poids_lait_cuve, mesure_ph, mesure_k, concent_nacl, niveau_bact_salmo, niveau_bact_ecoli, niveau_bact_listeria  )"
+                               "VALUES (%(date)s, %(id_unite)s, %(numero_automate)s, %(type_automate)s, %(temp_cuve)s, %(temp_exterieur)s, %(poids_lait_cuve)s, %(mesure_ph)s, %(mesure_k)s, %(concent_nacl)s, %(niveau_bact_salmo)s, %(niveau_bact_ecoli)s, %(niveau_bact_listeria)s)" 
                               )
                 data = {
                         'date':automate['epoch'],
@@ -46,13 +46,14 @@ class ClientThread(threading.Thread):
                         'poids_lait_cuve':automate['poids_lait_cuve'],
                         'mesure_ph':automate['mesure_ph'],
                         'mesure_k':automate['mesure_k'],
-                        'mesure_nacl':automate['mesure_nacl'],
+                        'concent_nacl':automate['concent_nacl'],
                         'niveau_bact_salmo':automate['niveau_bact_salmo'],
                         'niveau_bact_ecoli':automate['niveau_bact_ecoli'],
                         'niveau_bact_listeria':automate['niveau_bact_listeria']
                         }
 
                 cursor.execute(insert_data, data)
+                cnx.commit()
                 print(cursor.lastrowid)
                 cnx.close()
 
