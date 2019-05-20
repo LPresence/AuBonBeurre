@@ -7,8 +7,6 @@ import json
 
 #Hostname doit etre "id_unite"
 id_unite = (socket.gethostname())[0]
-#print(id_unitee)
-#id_unite = 1
 #Liste valeurs possible en hexadecimal
 liste_type_automt = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F']
 #variable data pour fichier json
