@@ -1,4 +1,4 @@
-import socket # pour hostname
+import socket 
 import calendar
 import time
 import random
@@ -6,14 +6,18 @@ import json
 
 
 #Hostname doit etre "id_unite"
-id_unite = 1 #pour le moment, sinon (socket.gethostname())[0].encode('utf-8')
+id_unite = (socket.gethostname())[0].encode('utf-8')
+#Liste valeurs possible en hexadecimal
 liste_type_automt = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F']
+#variable data pour fichier json
 data = {}
+#Date epoch unix
 date_str = str(calendar.timegm(time.gmtime())) 
 
 #generation du nom du fichier 
 f = "paramunite_"+str(id_unite)+"_"+date_str+".json"
 
+#Boucle création fichier
 with open(f, "w+") as outfile:
     i = 1
 
@@ -38,11 +42,16 @@ with open(f, "w+") as outfile:
         i = i+1
         array.append(data)
 
+    #Ecriture du fchier (10 ecritures par fichier)
     json.dump(array, outfile,indent=1)
 
+
+#Partie envoi de donnees
+#Connexion 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect(("172.17.0.2", 1111)) 
+s.connect(("172.30.0.10", 1111)) 
 file = f  
+#Envoi
 with open(file, 'rb') as _file: 
     s.send(_file.read()) 
 

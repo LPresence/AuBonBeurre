@@ -4,6 +4,7 @@ import socket
 import threading
 import json
 
+#Code trouve en partie sur internet pour la gestion du serveur avec utilisation de threads pour gerer lusieurs demandes en simultane
 class ClientThread(threading.Thread):
 
     def __init__(self, ip, port, clientsocket):
@@ -22,8 +23,10 @@ class ClientThread(threading.Thread):
 
         self.clientsocket.send('Fichier correctement recu'.encode('utf-8'))
         
+        #lecture des donnees json recues
         decoded = json.loads(r.decode('utf-8'))
         i=0
+        #connexion a la bdd pour chaque igne du fichier json
         for automates in decoded:
             print(automates)
             for automate in automates:
