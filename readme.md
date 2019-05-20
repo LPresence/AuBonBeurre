@@ -20,7 +20,9 @@ Se rendre dans le dossier ./usine_automate/prod/ et executer
 ## Logs
 Vous pouvez vérifier que les 6 conteneurs tournent en executant 
 > $ docker ps 
+
 Les logs sont disponibles en executant
+
 > $ docker logs -f automate{1-5} ou $ docker logs -f workerServer
 
 
