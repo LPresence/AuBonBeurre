@@ -41,7 +41,7 @@ with open(f, "w+") as outfile:
     json.dump(array, outfile,indent=1)
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect(("172.17.0.2", 1111)) 
+s.connect(("172.30.0.10", 1111)) 
 file = f  
 with open(file, 'rb') as _file: 
     s.send(_file.read()) 

@@ -28,7 +28,7 @@ class ClientThread(threading.Thread):
             print(automates)
             for automate in automates:
                 print(automate["id_unite"])
-                cnx = mysql.connector.connect(user='automate_worker', password='Pksdj87Gtfucb', host='172.17.0.1', database='devops')
+                cnx = mysql.connector.connect(user='automate_worker', password='Pksdj87Gtfucb', host='172.30.0.1', database='devops')
                 cursor = cnx.cursor()
                 #todo : ajouter le poids produit fini
                 #improvement : date(YYYY, MM, DD) instead of passing just epoch
