@@ -10,11 +10,17 @@ Afin de les utiliser vous dévez préalablement installer Docker et Docker-compo
 
 
 > +----------------------+--------------+------+-----+---------+----------------+
+
 > | Field                | Type         | Null | Key | Default | Extra          |
+
 > +----------------------+--------------+------+-----+---------+----------------+
+
 > | id                   | int(255)     | NO   | PRI | NULL    | auto_increment |
+
 > | date                 | varchar(255) | NO   |     | NULL    |                |
+
 > | id_unite             | int(255)     | NO   |     | NULL    |                |
+
 > | numero_automate      | int(255)     | NO   |     | NULL    |                |
 > | type_automate        | varchar(255) | NO   |     | NULL    |                |
 > | temp_cuve            | float        | NO   |     | NULL    |                |
