@@ -15,7 +15,8 @@ liste_type_automt = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F']
 data = {}
 #Date epoch unix
 date_str = str(calendar.timegm(time.gmtime())) 
-
+#Date format 
+format_date = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(calendar.timegm(time.gmtime())))
 #generation du nom du fichier 
 f = "paramunite_"+str(id_unite)+"_"+date_str+".json"
 
@@ -39,7 +40,7 @@ with open(f, "w+") as outfile:
                     'niveau_bact_salmo': random.randrange(17,37,1),            
                     'niveau_bact_ecoli': random.randrange(35,49,1),            
                     'niveau_bact_listeria': random.randrange(28,54,1),
-                    'epoch' : date_str
+                    'date' : format_date
             },
         i = i+1
         array.append(data)
