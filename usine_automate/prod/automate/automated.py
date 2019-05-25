@@ -1,5 +1,6 @@
 import socket 
 import calendar
+import os
 import time
 import random
 import json 
@@ -17,6 +18,8 @@ date_str = str(calendar.timegm(time.gmtime()))
 format_date = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(calendar.timegm(time.gmtime())))
 #generation du nom du fichier 
 f = "paramunite_"+str(id_unite)+"_"+date_str+".json"
+#declaratrion var env poids precedant
+os.environ["prev_poids"] = "0"
 
 #Boucle creation fichier
 with open(f, "w+") as outfile:
@@ -30,8 +33,9 @@ with open(f, "w+") as outfile:
                     'type_automate': '0X000BA2'+str(random.choice(liste_type_automt)),
                     'temp_cuve': round(random.uniform(2.5,4.0), 1),
                     'temp_exterieur': round(random.uniform(8.0,14.0), 1),
-                    'poids_lait_cuve': random.randrange(3512,4607,1),
-                    'poids_produit_fini': 0,            
+                     poids_lait_cuve =  random.randrange(3512,4607,1),
+                    #'poids_lait_cuve': poids_lait_cuve,
+                    'poids_produit_fini': poids_lait_cuve - prev_poids, #os.environ.get["prev_poids"],            
                     'mesure_ph': round(random.uniform(6.8,7.2), 1),            
                     'mesure_k': random.randrange(35,47,1),            
                     'concent_nacl': round(random.uniform(1.0,1.7), 1),            
