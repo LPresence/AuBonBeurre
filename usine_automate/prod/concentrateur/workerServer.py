@@ -33,7 +33,7 @@ class ClientThread(threading.Thread):
                 print(automate["id_unite"])
                 cnx = mysql.connector.connect(user='automate_worker', password='Pksdj87Gtfucb', host='172.30.0.1', database='devops')
                 cursor = cnx.cursor()
-                #todo : ajouter le poids produit fini
+                #insertion données date epoch a modifier et poids lait comparaison a faire
                 insert_data = ("INSERT INTO donnees_automates " 
                                "(date, id_unite, numero_automate, type_automate, temp_cuve, temp_exterieur, poids_lait_cuve, mesure_ph, mesure_k, concent_nacl, niveau_bact_salmo, niveau_bact_ecoli, niveau_bact_listeria  )"
                                "VALUES (%(date)s, %(id_unite)s, %(numero_automate)s, %(type_automate)s, %(temp_cuve)s, %(temp_exterieur)s, %(poids_lait_cuve)s, %(mesure_ph)s, %(mesure_k)s, %(concent_nacl)s, %(niveau_bact_salmo)s, %(niveau_bact_ecoli)s, %(niveau_bact_listeria)s)" 
