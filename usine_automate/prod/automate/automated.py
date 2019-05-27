@@ -25,6 +25,8 @@ with open(f, "w+") as outfile:
     i = 1
     array = []
     while i < 11:
+        poids_lait_cuve = random.randrange(3512,4607,1)
+        poids_produit_fini = poids_lait_cuve  
         envar = "prev_poids" + str(i)
         os.environ["envar"] = str(i)
         print(os.environ.get('envar'))
@@ -35,7 +37,7 @@ with open(f, "w+") as outfile:
                     'temp_cuve': round(random.uniform(2.5,4.0), 1),
                     'temp_exterieur': round(random.uniform(8.0,14.0), 1),
                     'poids_lait_cuve': random.randrange(3512,4607,1),
-                    #'poids_lait_cuve': poids_lait_cuve,
+                    #'poids_lait_cuve': 0,
                     #'poids_produit_fini': poids_lait_cuve - prev_poids, #os.environ.get["prev_poids"],            
                     'poids_produit_fini': 0,
                     'mesure_ph': round(random.uniform(6.8,7.2), 1),            
