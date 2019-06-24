@@ -20,6 +20,14 @@ pipeline {
         }
       }
     }
+    stage('Run tests') {
+        steps{
+            sh "docker run --name automate-test -d $registry:$BUILD_NUMBER "
+            sh "docker exec automate-test /bin/bash  -c 'python --version '"
+            sh "docker exec automate-test /bin/bash  -c \"cd /usr/src/app && nose2\""
+            sh "docker rm -f automate-test"
+        }
+    }
     stage('Deploy Image') {
       steps{
          script {   
@@ -27,11 +35,6 @@ pipeline {
             dockerImage.push()
          }
         }
-      }
-    }
-    stage('Change actual docker image') {
-      steps{
-        sh "bash "
       }
     }
     stage('Remove Unused docker image') {
