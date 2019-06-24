@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 
 #install mysql 
 
-RUN pip install mysql-connector-python
+RUN pip install mysql-connector-python nose
 RUN mkdir /usr/src/app/files
 COPY workerServer.py .
 
