@@ -34,7 +34,7 @@ while True:
         for element in liste_type_automt:
             data={
                         'id_unite': id_unite,
-                        'numero_automate': element[0], ,
+                        'numero_automate': element[0],
                         'type_automate': '0X000BA2'+str(element[1]),
                         'temp_cuve': round(random.uniform(2.5,4.0), 1),
                         'temp_exterieur': round(random.uniform(8.0,14.0), 1),
