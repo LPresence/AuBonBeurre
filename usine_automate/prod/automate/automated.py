@@ -5,11 +5,17 @@ import time
 import random
 import json 
 
+def get_rand_hexa(liste):
+    index = random.randrange(0, len(liste), 1)
+    elem = liste[index]
+    liste.pop(index)
+    return elem
 
 #Hostname doit etre "id_unite"
 id_unite = (socket.gethostname())[0]
 #Liste valeurs possible en hexadecimal
-liste_type_automt = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F']
+types = [1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F']
+liste_type_automt = [[1, get_rand_hexa(types)], [2, get_rand_hexa(types)], [3, get_rand_hexa(types)], [4, get_rand_hexa(types)], [5, get_rand_hexa(types)], [6, get_rand_hexa(types)], [7, get_rand_hexa(types)], [8, get_rand_hexa(types)], [9, get_rand_hexa(types)], [10, get_rand_hexa(types)]]
 #variable data pour fichier json
 data = {}
 #Date epoch unix
@@ -24,22 +30,19 @@ f = "paramunite_"+str(id_unite)+"_"+str(date)+".json"
 with open(f, "w+") as outfile:
     i = 1
     array = []
-    while i < 11:
-        poids_lait_cuve = random.randrange(3512,4607,1)
-        poids_produit_fini = poids_lait_cuve  
-        envar = "prev_poids" + str(i)
-        os.environ["envar"] = str(i)
-        print(os.environ.get('envar'))
+    for element in liste_type_automt:
+        #poids_lait_cuve = random.randrange(3512,4607,1)
+        #poids_produit_fini = poids_lait_cuve  
+        #envar = "prev_poids" + str(i)
+        #os.environ["envar"] = str(i)
+        #print(os.environ.get('envar'))
         data={
                     'id_unite': id_unite,
-                    'numero_automate': i ,
-                    'type_automate': '0X000BA2'+str(random.choice(liste_type_automt)),
+                    'numero_automate': element[0], ,
+                    'type_automate': '0X000BA2'+str(element[1]),
                     'temp_cuve': round(random.uniform(2.5,4.0), 1),
                     'temp_exterieur': round(random.uniform(8.0,14.0), 1),
                     'poids_lait_cuve': random.randrange(3512,4607,1),
-                    #'poids_lait_cuve': 0,
-                    #'poids_produit_fini': poids_lait_cuve - prev_poids, #os.environ.get["prev_poids"],            
-                    'poids_produit_fini': 0,
                     'mesure_ph': round(random.uniform(6.8,7.2), 1),            
                     'mesure_k': random.randrange(35,47,1),            
                     'concent_nacl': round(random.uniform(1.0,1.7), 1),            
