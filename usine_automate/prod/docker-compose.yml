@@ -1,7 +1,7 @@
 version: '3'
 services:
   automate1:
-    image: automate:1.0
+    image: automate:1.1
     container_name: automate1
     restart: always 
     hostname: "1"
@@ -10,7 +10,7 @@ services:
     networks:
       - usine_network 
   automate2:
-    image: automate:1.0
+    image: automate:1.1
     container_name: automate2
     restart: always 
     hostname: "2"
@@ -19,7 +19,7 @@ services:
     networks:
       - usine_network
   automate3:
-    image: automate:1.0
+    image: automate:1.1
     container_name: automate3
     restart: always 
     hostname: "3"
@@ -28,7 +28,7 @@ services:
     networks:
       - usine_network
   automate4:
-    image: automate:1.0
+    image: automate:1.1
     container_name: automate4
     restart: always 
     hostname: "4"
@@ -37,7 +37,7 @@ services:
     networks:
       - usine_network 
   automate5:
-    image: automate:1.0
+    image: automate:1.1
     container_name: automate5
     restart: always
     hostname: "5"
