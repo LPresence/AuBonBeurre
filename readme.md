@@ -6,6 +6,11 @@ Afin de les utiliser vous dévez préalablement installer Docker et Docker-compo
 
 La connexion a la base de données doit etre modifiée par rapport à votre configuration (ip, user, password, port) dans le fichier ./usine_automate/prod/concentrateur/workerServer.py:34
 
+## Start
+Afin de construire le projet, placez vous le dossier ./usine_automate/prod/ et executez : 
+> $ docker-compose up -d
+
+Si vous souhaitez construire les images sur votre machine :
 ## 1 
 Se rendre dans le dossier ./usine_automate/prod/concentrateur/ et executer 
 > $ docker build -t workerserver:1.0 .
