@@ -35,7 +35,6 @@ CREATE TABLE `donnees_automates` (
   `temp_cuve` float NOT NULL,
   `temp_exterieur` float NOT NULL,
   `poids_lait_cuve` int(255) NOT NULL,
-  `poids_produit_fini` int(255) DEFAULT NULL,
   `mesure_ph` float NOT NULL,
   `mesure_k` int(255) NOT NULL,
   `concent_nacl` float NOT NULL,
