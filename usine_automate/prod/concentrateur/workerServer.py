@@ -69,6 +69,8 @@ class ClientThread(threading.Thread):
 
                     print("Client déconnecté...")
 
+                else:
+                    
 
 tcpsock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 tcpsock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
