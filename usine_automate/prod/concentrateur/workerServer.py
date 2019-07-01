@@ -74,30 +74,20 @@ class ClientThread(threading.Thread):
                     cnx = mysql.connector.connect(user='concentrateur_docker', password='expand', host='172.30.0.1', database='devops')
                     cursor = cnx.cursor()
                     #insertion données 
-                    insert_data = ("INSERT INTO donnees_automates " 
-                                "(date, id_unite, numero_automate, type_automate, temp_cuve, temp_exterieur, poids_lait_cuve, mesure_ph, mesure_k, concent_nacl, niveau_bact_salmo, niveau_bact_ecoli, niveau_bact_listeria  )"
-                                  "VALUES (%(date)s, %(id_unite)s, %(numero_automate)s, %(type_automate)s, %(temp_cuve)s, %(temp_exterieur)s, %(poids_lait_cuve)s, %(mesure_ph)s, %(mesure_k)s, %(concent_nacl)s, %(niveau_bact_salmo)s, %(niveau_bact_ecoli)s, %(niveau_bact_listeria)s)" 
+                    insert_data = ("INSERT INTO donnees_automates "
+                                "(date, id_unite, numero_automate )"
+                                  "VALUES (%(date)s, %(id_unite)s, %(numero_automate)s )"
                                  )
                     data = {
                            'date':automate['date'],
                            'id_unite':automate['id_unite'],
                            'numero_automate':automate['numero_automate'],
-                           'type_automate':"0XFFFFFFFF",
-                           'temp_cuve':"99,99",
-                           'temp_exterieur':"99,99",
-                           'poids_lait_cuve':"9999999,9",
-                           'mesure_ph':"9999,9",
-                           'mesure_k':"0XFFFF",
-                           'concent_nacl':"9999,9",
-                           'niveau_bact_salmo':"0XFFFF",
-                           'niveau_bact_ecoli':"0XFFFF",
-                           'niveau_bact_listeria':"0XFFFF"
                         }
 
                     cursor.execute(insert_data, data)
                     cnx.commit()
                     
-                    print("Client déconnecté, erreur jeu de données, valeurs par defaut ajoutées ...")
+                    print("Client déconnecté, erreur dans jeu de données > valeurs par defaut ajoutées ...")
                     #Send real values to error table
                     #insertion données date epoch a modifier et poids lait comparaison a faire
                     insert_data2 = ("INSERT INTO donnees_erronnes " 
