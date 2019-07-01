@@ -12,7 +12,7 @@
 --
 
 CREATE TABLE `donnees_automates` (
-  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `id` int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `date` datetime NOT NULL,
   `id_unite` int(255) NOT NULL,
   `numero_automate` int(255) NOT NULL,
@@ -51,14 +51,5 @@ CREATE TABLE `donnees_err` (
   `niveau_bact_listeria` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
---
--- Index pour les tables exportées
---
-
---
--- Index pour la table `donnees_automates`
---
-ALTER TABLE `donnees_automates`
-  ADD PRIMARY KEY (`id`);
 
 
