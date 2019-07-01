@@ -6,7 +6,7 @@ import json
 
 
 def check_validity(data):  #ajouter type_automate 0X0000BA20<= N <= 0X0000BA2F
-    if (1 <= data['id_unite'] <= 5 and 1 <= data['numero_automate'] <= 10 and 0 <= data['temp_cuve'] <= 100 and 0 <= data['poids_lait_cuve'] <= 10000):
+    if (1 <= int(data['id_unite']) <= 5 and 1 <= int(data['numero_automate']) <= 10 and 0 <= int(data['temp_cuve']) <= 100 and 0 <= int(data['poids_lait_cuve']) <= 10000):
         return true
     else:
         return false
