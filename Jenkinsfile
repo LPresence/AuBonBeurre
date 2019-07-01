@@ -56,7 +56,7 @@ pipeline {
       steps{
         sh "ssh jenkins-user@54.38.240.160 mkdir -p /home/jenkins-user/tempo/prod"
         sh "ssh jenkins-user@54.38.240.160 'cd /home/jenkins-user/tempo/prod && wget https://raw.githubusercontent.com/LPresence/AuBonBeurre/master/usine_automate/prod/docker-compose.yml'"
-        sh "ssh jenkins-user@54.38.240.160 'cd /home/jenkins-user/tempo/prod && docker-compose down && docker-compose up -d && rm -rf /home/jenkins-user/tempo'"
+        sh "ssh jenkins-user@54.38.240.160 'cd /home/jenkins-user/tempo/prod && docker pull kaluspresence/u-bon-beurre:automate-latest && docker pull kaluspresence/u-bon-beurre:server-latest && docker-compose down && docker-compose up -d && rm -rf /home/jenkins-user/tempo'"
       }
     }
   }
