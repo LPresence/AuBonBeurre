@@ -96,13 +96,9 @@ class ClientThread(threading.Thread):
 
                     cursor.execute(insert_data, data)
                     cnx.commit()
-                    print(cursor.lastrowid)
-                    cnx.close()
-
+                    
                     print("Client déconnecté, erreur jeu de données, valeurs par defaut ajoutées ...")
                     #Send real values to error table
-                    cnx2 = mysql.connector.connect(user='concentrateur_docker', password='expand', host='172.30.0.1', database='devops')
-                    cursor2 = cnx2.cursor()
                     #insertion données date epoch a modifier et poids lait comparaison a faire
                     insert_data2 = ("INSERT INTO donnees_erronnees " 
                                 "(date, id_unite, numero_automate, type_automate, temp_cuve, temp_exterieur, poids_lait_cuve, mesure_ph, mesure_k, concent_nacl, niveau_bact_salmo, niveau_bact_ecoli, niveau_bact_listeria  )"
@@ -124,10 +120,10 @@ class ClientThread(threading.Thread):
                            'niveau_bact_listeria':automate['niveau_bact_listeria']
                         }
 
-                    cursor2.execute(insert_data2, data2)
-                    cnx2.commit()
-                    print(cursor2.lastrowid)
-                    cnx2.close()
+                    cursor.execute(insert_data2, data2)
+                    cnx.commit()
+                    print(cursor.lastrowid)
+                    cnx.close()
 
                     print("Client déconnecté, valeurs ajoutées en table d'erreur...")
                     
