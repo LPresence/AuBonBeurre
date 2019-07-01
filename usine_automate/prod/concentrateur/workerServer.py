@@ -90,7 +90,7 @@ class ClientThread(threading.Thread):
                     print("Client déconnecté, erreur dans jeu de données > valeurs par defaut ajoutées ...")
                     #Send real values to error table
                     #insertion données date epoch a modifier et poids lait comparaison a faire
-                    insert_data2 = ("INSERT INTO donnees_erronnes " 
+                    insert_data2 = ("INSERT INTO donnees_err" 
                                 "(date, id_unite, numero_automate, type_automate, temp_cuve, temp_exterieur, poids_lait_cuve, mesure_ph, mesure_k, concent_nacl, niveau_bact_salmo, niveau_bact_ecoli, niveau_bact_listeria  )"
                                   "VALUES (%(date)s, %(id_unite)s, %(numero_automate)s, %(type_automate)s, %(temp_cuve)s, %(temp_exterieur)s, %(poids_lait_cuve)s, %(mesure_ph)s, %(mesure_k)s, %(concent_nacl)s, %(niveau_bact_salmo)s, %(niveau_bact_ecoli)s, %(niveau_bact_listeria)s)" 
                                  )
