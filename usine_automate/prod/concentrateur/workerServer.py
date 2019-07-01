@@ -36,7 +36,6 @@ class ClientThread(threading.Thread):
         #connexion a la bdd pour chaque igne du fichier json
         for automates in decoded:
             print(automates)
-            print(check_validity(automate))
             for automate in automates:
                 if check_validity(automate):
                     print(automate["id_unite"])
@@ -71,7 +70,6 @@ class ClientThread(threading.Thread):
                     print("Client déconnecté, valeurs ajoutées...")
 
                 else:
-                    print('error data not validated.')
                     #Send default values to prod table
                     cnx = mysql.connector.connect(user='concentrateur_docker', password='expand', host='172.30.0.1', database='devops')
                     cursor = cnx.cursor()
