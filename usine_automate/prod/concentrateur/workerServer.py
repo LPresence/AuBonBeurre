@@ -31,7 +31,7 @@ class ClientThread(threading.Thread):
             print(automates)
             for automate in automates:
                 print(automate["id_unite"])
-                cnx = mysql.connector.connect(user='automate_worker', password='Pksdj87Gtfucb', host='172.30.0.1', database='devops')
+                cnx = mysql.connector.connect(user='concentrateur_docker', password='expand', host='172.30.0.1', database='devops')
                 cursor = cnx.cursor()
                 #insertion données date epoch a modifier et poids lait comparaison a faire
                 insert_data = ("INSERT INTO donnees_automates " 
