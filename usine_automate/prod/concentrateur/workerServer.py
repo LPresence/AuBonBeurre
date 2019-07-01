@@ -62,12 +62,12 @@ class ClientThread(threading.Thread):
                            'niveau_bact_listeria':automate['niveau_bact_listeria']
                         }
 
-                     cursor.execute(insert_data, data)
-                     cnx.commit()
-                     print(cursor.lastrowid)
-                     cnx.close()
+                    cursor.execute(insert_data, data)
+                    cnx.commit()
+                    print(cursor.lastrowid)
+                    cnx.close()
 
-                     print("Client déconnecté...")
+                    print("Client déconnecté...")
 
 
 tcpsock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
