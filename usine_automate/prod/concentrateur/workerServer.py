@@ -67,7 +67,7 @@ class ClientThread(threading.Thread):
                     print(cursor.lastrowid)
                     cnx.close()
 
-                    print("Client déconnecté...")
+                    print("Client déconnecté, valeurs ajoutées...")
 
                 else:
                     #Send default values to prod table
@@ -99,7 +99,7 @@ class ClientThread(threading.Thread):
                     print(cursor.lastrowid)
                     cnx.close()
 
-                    print("Client déconnecté...")
+                    print("Client déconnecté, erreur jeu de données, valeurs par defaut ajoutées ...")
                     #Send real values to error table
                     cnx2 = mysql.connector.connect(user='concentrateur_docker', password='expand', host='172.30.0.1', database='devops')
                     cursor2 = cnx2.cursor()
@@ -129,7 +129,7 @@ class ClientThread(threading.Thread):
                     print(cursor2.lastrowid)
                     cnx2.close()
 
-                    print("Client déconnecté...")
+                    print("Client déconnecté, valeurs ajoutées en table d'erreur...")
                     
                     
 
