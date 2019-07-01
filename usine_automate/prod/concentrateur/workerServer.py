@@ -7,9 +7,9 @@ import json
 
 def check_validity(data):  #ajouter type_automate 0X0000BA20<= N <= 0X0000BA2F
     if (1 <= int(data['id_unite']) <= 5 and 1 <= int(data['numero_automate']) <= 10 and 0 <= int(data['temp_cuve']) <= 100 and 0 <= int(data['poids_lait_cuve']) <= 10000):
-        return true
+        return True
     else:
-        return false
+        return False
     
 #Code trouve en partie sur internet pour la gestion du serveur avec utilisation de threads pour gerer lusieurs demandes en simultane
 class ClientThread(threading.Thread):
