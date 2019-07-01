@@ -35,7 +35,7 @@ CREATE TABLE `donnees_automates` (
 --
 
 CREATE TABLE `donnees_err` (
-  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `id` int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `date` datetime NOT NULL,
   `id_unite` int(255) NOT NULL,
   `numero_automate` int(255) NOT NULL,
@@ -50,6 +50,5 @@ CREATE TABLE `donnees_err` (
   `niveau_bact_ecoli` int(255) NOT NULL,
   `niveau_bact_listeria` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
-
 
 
